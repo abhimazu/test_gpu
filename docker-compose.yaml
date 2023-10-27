@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  gpu1:
+    build:
+      context: .
+      dockerfile: dGPU.Dockerfile
+    container_name: gpu1
+    privileged: true
+    network_mode: host
+    devices:
+      - /dev/dri
+    # environment:
+    #   - DISPLAY=${DISPLAY}
+    #   - INPUT=${INPUT}
+    #   - DEVICE=${DEVICE}
+    #   - OUTPUT=${OUTPUT}
+    #   - SCRIPT_NAME=face_detection_and_classification
+  gpu2:
+    build:
+      context: .
+      dockerfile: dGPU2.Dockerfile
+    container_name: gpu2
+    privileged: true
+    network_mode: host
+    devices:
+      - /dev/dri
+    # environment:
+    #   - DISPLAY=${DISPLAY}
+    #   - INPUT=${INPUT}
+    #   - DEVICE=GPU
+    #   - OUTPUT=${OUTPUT}
+    #   - SCRIPT_NAME=human_pose_estimation
