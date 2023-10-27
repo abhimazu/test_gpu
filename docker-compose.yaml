@@ -1,32 +1,16 @@
 version: '3.7'
 services:
   gpu1:
-    build:
-      context: .
-      dockerfile: dGPU.Dockerfile
+    image: abhimazu/gpu1:v1.0
     container_name: gpu1
     privileged: true
     network_mode: host
     devices:
       - /dev/dri
-    # environment:
-    #   - DISPLAY=${DISPLAY}
-    #   - INPUT=${INPUT}
-    #   - DEVICE=${DEVICE}
-    #   - OUTPUT=${OUTPUT}
-    #   - SCRIPT_NAME=face_detection_and_classification
   gpu2:
-    build:
-      context: .
-      dockerfile: dGPU2.Dockerfile
+    image: abhimazu/gpu2:v1.0
     container_name: gpu2
     privileged: true
     network_mode: host
     devices:
       - /dev/dri
-    # environment:
-    #   - DISPLAY=${DISPLAY}
-    #   - INPUT=${INPUT}
-    #   - DEVICE=GPU
-    #   - OUTPUT=${OUTPUT}
-    #   - SCRIPT_NAME=human_pose_estimation
